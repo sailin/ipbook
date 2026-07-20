@@ -1,4 +1,4 @@
-import { Host } from '~/server/models'
+import { Host, UnknownHost } from '~/server/models'
 import { requireAuth } from '~/server/utils/auth'
 
 export default defineEventHandler(async (event) => {
@@ -19,5 +19,9 @@ export default defineEventHandler(async (event) => {
   }
 
   await Host.create({ hostname: normalized })
+
+  // Remove from unknown hosts list now that it's whitelisted
+  await UnknownHost.deleteOne({ hostname: normalized })
+
   return { success: true, hostname: normalized, created: true }
 })

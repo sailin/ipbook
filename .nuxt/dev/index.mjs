@@ -2245,16 +2245,16 @@ _wH6JrtIxmaSoA8lCPWFnE9z4lQeXW6H5z3l5aymEQw
 const assets = {
   "/index.mjs": {
     "type": "text/javascript; charset=utf-8",
-    "etag": "\"1db23-+5mM+lAeSGgoIEnMfzVyNyWJa8M\"",
-    "mtime": "2026-07-20T02:40:57.864Z",
-    "size": 121635,
+    "etag": "\"1db94-32sljdHK3VKhOBv6XDBMv6OkfKY\"",
+    "mtime": "2026-07-20T03:18:19.184Z",
+    "size": 121748,
     "path": "index.mjs"
   },
   "/index.mjs.map": {
     "type": "application/json",
-    "etag": "\"745a0-wqqTRcaTTdgUSkFuWiAnDXGVIj8\"",
-    "mtime": "2026-07-20T02:40:57.864Z",
-    "size": 476576,
+    "etag": "\"74768-mLg9j/fhiUfBGxlWf65JyZudR5o\"",
+    "mtime": "2026-07-20T03:18:19.184Z",
+    "size": 477032,
     "path": "index.mjs.map"
   }
 };
@@ -3361,6 +3361,7 @@ const index_post = defineEventHandler(async (event) => {
     return { success: true, hostname: normalized, created: false, message: "Already whitelisted" };
   }
   await Host.create({ hostname: normalized });
+  await UnknownHost.deleteOne({ hostname: normalized });
   return { success: true, hostname: normalized, created: true };
 });
 

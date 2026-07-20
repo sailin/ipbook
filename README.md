@@ -88,6 +88,6 @@ The server extracts the source IP from the request. No auth needed for the repor
 
 | Path | Auth | Purpose |
 |---|---|---|
-| `/` | No | Dashboard — whitelisted hosts table + IP timeline |
+| `/` | Yes | Dashboard — whitelisted hosts table + IP timeline |
 | `/login` | No | Sign in (first login bootstraps admin) |
 | `/admin` | Yes | Manage whitelist, view unknown hosts |
