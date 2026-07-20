@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
-import { User } from './server/models/User'
-import { hashPassword } from './server/utils/auth'
+import { User } from './models/User'
+import { hashPassword } from './utils/auth'
 
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/ipbook'
 
